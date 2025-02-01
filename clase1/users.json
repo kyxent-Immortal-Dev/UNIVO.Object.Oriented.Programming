@@ -1,0 +1,18 @@
+[
+  {
+    "id": "72fa6b40-6494-4ce1-9706-41d79dbd82f1",
+    "names": "Ezequiel",
+    "lastnames": "Campos",
+    "age": 21,
+    "email": "humbertoezequiel.z.c@gmail.com",
+    "password": "123"
+  },
+  {
+    "id": "e647ac30-ed23-4de4-8726-d8c152277e08",
+    "names": "Humberto",
+    "lastnames": "Campos",
+    "age": 22,
+    "email": "h@gmail.com",
+    "password": "123"
+  }
+]
