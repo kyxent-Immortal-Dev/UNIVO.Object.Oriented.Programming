@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+
+#creamos una nueva instancia de mongodb
+  mongodb:
+  #le decimos que queremos la ultima version
+    image: mongo:latest
+    #le ponemos un nombre
+    container_name: mongodb
+    restart: always
+    #creamos las variables de entorno en este caso serian dos : usuario y contraseña de mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootuser
+    #le indicamos en que puerto va a estar abierta
+    ports:
+      - "27017:27017"
+    #le indicamos en donde tiene que generar la data de la db que vayas a usar para que nose borre pues
+    #cuando cierras el docker
+    volumes:
+      - mongodb_data:/data/db
+
+    #le decimos que va a tener un acceso local externo fuera de docker (entonces te va apermitir usarlo de forma local en tu pc)
+    networks:
+      - mongo_network
+
+networks:
+#lo antes mencionado xd
+  mongo_network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+    driver: local
+
+
+#uri pa conectarse al mongodb compass
+#esta uri debes pegar sin el numeral va xd para conectarte al mongo
+#mongodb://root:rootuser@localhost:27017
+
+#esta forma es mejor que la tradicional instalando el server ya que eso se hace cuando vas ha hacer un deploy de verdad
+#en cambio usando docker estas creando una instancia para trabajar y tener una instancia de mongo de desarrollo y no de producción
+#tambien hay otro metodo usando mongodb atlas que es aun mas facil , pero la ventaja de este es que es de forma local y no te dara problemas de rendimiento o internet etc asi que hay un balance
