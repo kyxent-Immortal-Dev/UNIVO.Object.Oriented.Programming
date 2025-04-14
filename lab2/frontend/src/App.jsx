@@ -1,15 +1,10 @@
 import React from 'react'
 import SidebarComponent from './components/SidebarComponent'
-import CreateCategoryModal from './components/CreateCategoryModal'
 
 export default function App() {
-
-  
-
   return (
-    <>
-      <CreateCategoryModal/>
-      <SidebarComponent/>
-    </>
+    <div className="min-h-screen bg-gray-100">
+      <SidebarComponent />
+    </div>
   )
 }
