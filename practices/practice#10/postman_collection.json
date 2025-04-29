@@ -1,0 +1,220 @@
+{
+    "info": {
+      "_postman_id": "e1a23b45-c678-9de0-12f3-g456h789i0j1",
+      "name": "MongoDB Express CRUD",
+      "description": "Colección para probar el CRUD de MongoDB con Express",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Clientes",
+        "item": [
+          {
+            "name": "Crear Cliente (InsertOne)",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:3000/clientes",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "clientes"
+                ]
+              },
+              "description": "Crea un cliente con los datos de Ezequiel Campos"
+            },
+            "response": []
+          },
+          {
+            "name": "Obtener Todos los Clientes (Find)",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:3000/clientes",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "clientes"
+                ]
+              },
+              "description": "Obtiene todos los clientes de la base de datos"
+            },
+            "response": []
+          },
+          {
+            "name": "Obtener Cliente por Nombre (Find por parámetro)",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:3000/clientes/Ezequiel Campos",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "clientes",
+                  "Ezequiel Campos"
+                ]
+              },
+              "description": "Busca un cliente por su nombre exacto"
+            },
+            "response": []
+          },
+          {
+            "name": "Eliminar Cliente (DeleteOne)",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:3000/clientes/Ezequiel Campos",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "clientes",
+                  "Ezequiel Campos"
+                ]
+              },
+              "description": "Elimina un cliente por su nombre"
+            },
+            "response": []
+          }
+        ],
+        "description": "Operaciones CRUD para la colección de clientes"
+      },
+      {
+        "name": "Productos",
+        "item": [
+          {
+            "name": "Crear Productos (InsertMany)",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:3000/productos/batch",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "productos",
+                  "batch"
+                ]
+              },
+              "description": "Crea múltiples productos de una vez"
+            },
+            "response": []
+          },
+          {
+            "name": "Productos con Precio Mayor a 10 (Find con $gt)",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:3000/productos/precio-mayor/10",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "productos",
+                  "precio-mayor",
+                  "10"
+                ]
+              },
+              "description": "Busca productos con precio mayor al valor especificado"
+            },
+            "response": []
+          },
+          {
+            "name": "Actualizar Precio Producto (UpdateOne)",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"precio\": 16.99\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/productos/Camisa",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "productos",
+                  "Camisa"
+                ]
+              },
+              "description": "Actualiza el precio de un producto específico"
+            },
+            "response": []
+          },
+          {
+            "name": "Aplicar Descuento (UpdateMany)",
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:3000/productos/descuento/10",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "productos",
+                  "descuento",
+                  "10"
+                ]
+              },
+              "description": "Aplica descuento a todos los productos con precio menor al especificado"
+            },
+            "response": []
+          },
+          {
+            "name": "Eliminar Productos con Descuento (DeleteMany)",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:3000/productos/descuento",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "productos",
+                  "descuento"
+                ]
+              },
+              "description": "Elimina todos los productos que tienen descuento"
+            },
+            "response": []
+          }
+        ],
+        "description": "Operaciones CRUD para la colección de productos"
+      }
+    ]
+  }
